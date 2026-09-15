@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: isProd ? "/thaurathrikam" : "",
+  basePath: isProd ? "/thouryathrikam" : "",
 };
 
 export default nextConfig;
