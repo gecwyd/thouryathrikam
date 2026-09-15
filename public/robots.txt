@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gecw.ac.in/thaurathrikam/sitemap.xml
