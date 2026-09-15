@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
+import bgArt from "@/public/bg-art.webp";
+import logoNoBg from "@/public/logo-no-bg.webp";
 
 export default function Home() {
   return (
@@ -7,7 +10,7 @@ export default function Home() {
       {/* ── CINEMATIC BACKGROUND ── */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/bg-art.webp"
+          src={bgArt}
           alt="Classical Indian Art"
           fill
           className="object-cover opacity-[0.35] mix-blend-luminosity"
@@ -44,7 +47,7 @@ export default function Home() {
         {/* Elegant logo placement (Stamp style) */}
         <div className="relative w-20 h-20 md:w-32 md:h-32 drop-shadow-2xl hover:scale-105 transition-transform duration-700 cursor-default">
           <Image
-            src="/logo-no-bg.webp"
+            src={logoNoBg}
             alt="Thouryathrikam Logo"
             fill
             className="object-contain"
@@ -108,12 +111,12 @@ export default function Home() {
             </span>
           </div>
 
-          <a href="/media" className="group flex items-center gap-2 border border-amber-900/40 bg-[#120a05]/60 hover:bg-amber-900/30 px-4 py-2 rounded-full transition-all duration-300">
+          <Link href="/media" className="group flex items-center gap-2 border border-amber-900/40 bg-[#120a05]/60 hover:bg-amber-900/30 px-4 py-2 rounded-full transition-all duration-300">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
             <span className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-amber-500 group-hover:text-amber-400 font-[family-name:var(--font-geist-mono)]">
               Join Media Team
             </span>
-          </a>
+          </Link>
         </div>
 
         <a

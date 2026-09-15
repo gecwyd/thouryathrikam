@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import bgArt from "@/public/bg-art.webp";
+import logoNoBg from "@/public/logo-no-bg.webp";
 
 import { submitMediaForm } from "./actions";
 
@@ -70,7 +72,7 @@ export default function MediaTeamForm() {
       {/* ── CINEMATIC BACKGROUND ── */}
       <div className="absolute inset-0 z-0 fixed">
         <Image
-          src="/bg-art.webp"
+          src={bgArt}
           alt="Classical Indian Art"
           fill
           className="object-cover opacity-[0.25] mix-blend-luminosity"
@@ -85,7 +87,7 @@ export default function MediaTeamForm() {
         {/* ── HEADER ── */}
         <div className="flex flex-col items-center mb-10">
           <Link href="/" className="mb-8 hover:scale-105 transition-transform">
-            <Image src="/logo-no-bg.webp" alt="Logo" width={80} height={80} className="drop-shadow-2xl" />
+            <Image src={logoNoBg} alt="Logo" width={80} height={80} className="drop-shadow-2xl" />
           </Link>
           <div className="flex items-center gap-4 mb-4">
             <span className="w-8 h-px bg-amber-600/50"></span>
