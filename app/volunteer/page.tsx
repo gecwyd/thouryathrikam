@@ -47,18 +47,10 @@ export default function VolunteerCallForm() {
     "Guest and Hospitality",
   ];
 
-  const handleCommitteeSelect = (committee: string) => {
-    setValidationError("");
-    setFormData((prev) => ({
-      ...prev,
-      committee: prev.committee === committee ? "" : committee,
-    }));
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.committee) {
-      setValidationError("Please select one committee to proceed.");
+      setValidationError("Please select a committee from the dropdown.");
       return;
     }
 
@@ -103,7 +95,7 @@ export default function VolunteerCallForm() {
         />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto w-full">
+      <div className="relative z-10 max-w-3xl mx-auto w-full">
         <div className="flex flex-col items-center mb-10">
           <Link href="/" className="mb-8 hover:scale-105 transition-transform">
             <Image src={logoNoBg} alt="Logo" width={80} height={80} className="drop-shadow-2xl" />
@@ -233,49 +225,35 @@ export default function VolunteerCallForm() {
                 </div>
               </div>
 
-              <div className="space-y-4 pt-4">
+              <div className="space-y-2.5 pt-2">
                 <div className="flex justify-between items-center">
-                  <Label>Select Committee</Label>
+                  <Label htmlFor="committee">Preferred Committee</Label>
                   <span className="text-[10px] tracking-wider uppercase text-amber-700/80 font-[family-name:var(--font-geist-mono)]">
-                    * Choose 1 Option
+                    * Choose 1 Committee
                   </span>
                 </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {committeesList.map((committee, index) => {
-                    const isSelected = formData.committee === committee;
-                    return (
-                      <button
-                        key={committee}
-                        type="button"
-                        onClick={() => handleCommitteeSelect(committee)}
-                        className={`text-left px-4 py-3 border text-xs tracking-wider transition-all duration-300 flex items-center justify-between group cursor-pointer ${
-                          isSelected
-                            ? "border-amber-500/80 bg-amber-500/15 text-amber-200 shadow-[0_0_15px_rgba(251,191,36,0.15)]"
-                            : "border-amber-900/30 bg-[#080605]/50 text-amber-700/80 hover:border-amber-700/50 hover:text-amber-400"
-                        }`}
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <span className={`text-[10px] font-mono ${isSelected ? "text-amber-400" : "text-amber-800"}`}>
-                            {String(index + 1).padStart(2, "0")}
-                          </span>
-                          <span className="font-medium">{committee}</span>
-                        </div>
-                        <div
-                          className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all ${
-                            isSelected
-                              ? "border-amber-400 bg-amber-400/20"
-                              : "border-amber-900/50 group-hover:border-amber-700/60"
-                          }`}
-                        >
-                          {isSelected && (
-                            <div className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]" />
-                          )}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
+                <Select
+                  value={formData.committee}
+                  onValueChange={(val) => {
+                    setValidationError("");
+                    setFormData({ ...formData, committee: val });
+                  }}
+                  required
+                >
+                  <SelectTrigger id="committee" className="h-12">
+                    <SelectValue placeholder="Select Committee" />
+                  </SelectTrigger>
+                  <SelectContent className="max-h-72">
+                    {committeesList.map((committee, index) => (
+                      <SelectItem key={committee} value={committee}>
+                        <span className="font-mono text-[11px] text-amber-400/80 mr-2">
+                          {String(index + 1).padStart(2, "0")}.
+                        </span>
+                        {committee}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="pt-8 flex justify-center">
