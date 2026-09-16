@@ -5,6 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import bgArt from "@/public/bg-art.webp";
 import logoNoBg from "@/public/logo-no-bg.webp";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 import { submitVolunteerForm } from "./actions";
 
@@ -139,7 +148,7 @@ export default function VolunteerCallForm() {
                   setFormData({ name: "", semester: "", department: "", phone: "", committee: "" });
                   setValidationError("");
                 }}
-                className="mt-8 px-8 py-3 text-xs tracking-[0.2em] uppercase bg-amber-900/40 hover:bg-amber-800/60 border border-amber-700/50 transition-colors text-amber-100"
+                className="mt-8 px-8 py-3 text-xs tracking-[0.2em] uppercase bg-amber-900/40 hover:bg-amber-800/60 border border-amber-700/50 transition-colors text-amber-100 cursor-pointer"
               >
                 Submit Another
               </button>
@@ -159,86 +168,74 @@ export default function VolunteerCallForm() {
               )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-[10px] tracking-[0.2em] uppercase text-amber-600 font-[family-name:var(--font-geist-mono)]">
-                    Full Name
-                  </label>
-                  <input
+                <div className="space-y-2.5">
+                  <Label htmlFor="name">Full Name</Label>
+                  <Input
                     id="name"
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-[#080605]/50 border-b border-amber-900/50 focus:border-amber-500 text-amber-100 px-3 py-3 outline-none transition-colors text-sm"
-                    placeholder="Enter your name"
+                    placeholder="Enter your full name"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="phone" className="text-[10px] tracking-[0.2em] uppercase text-amber-600 font-[family-name:var(--font-geist-mono)]">
-                    WhatsApp Number
-                  </label>
-                  <input
+                <div className="space-y-2.5">
+                  <Label htmlFor="phone">WhatsApp Number</Label>
+                  <Input
                     id="phone"
                     type="tel"
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-[#080605]/50 border-b border-amber-900/50 focus:border-amber-500 text-amber-100 px-3 py-3 outline-none transition-colors text-sm"
                     placeholder="Enter your phone number"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="semester" className="text-[10px] tracking-[0.2em] uppercase text-amber-600 font-[family-name:var(--font-geist-mono)]">
-                    Semester
-                  </label>
-                  <select
-                    id="semester"
-                    required
+                <div className="space-y-2.5">
+                  <Label htmlFor="semester">Semester</Label>
+                  <Select
                     value={formData.semester}
-                    onChange={(e) => setFormData({ ...formData, semester: e.target.value })}
-                    className="w-full bg-[#080605]/50 border-b border-amber-900/50 focus:border-amber-500 text-amber-100 px-3 py-3 outline-none transition-colors text-sm appearance-none"
+                    onValueChange={(val) => setFormData({ ...formData, semester: val })}
+                    required
                   >
-                    <option value="" disabled className="text-zinc-600">
-                      Select Semester
-                    </option>
-                    {["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8"].map((s) => (
-                      <option key={s} value={s} className="bg-[#120a05]">
-                        {s}
-                      </option>
-                    ))}
-                  </select>
+                    <SelectTrigger id="semester">
+                      <SelectValue placeholder="Select Semester" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8"].map((s) => (
+                        <SelectItem key={s} value={s}>
+                          {s}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="department" className="text-[10px] tracking-[0.2em] uppercase text-amber-600 font-[family-name:var(--font-geist-mono)]">
-                    Department
-                  </label>
-                  <select
-                    id="department"
-                    required
+                <div className="space-y-2.5">
+                  <Label htmlFor="department">Department</Label>
+                  <Select
                     value={formData.department}
-                    onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                    className="w-full bg-[#080605]/50 border-b border-amber-900/50 focus:border-amber-500 text-amber-100 px-3 py-3 outline-none transition-colors text-sm appearance-none"
+                    onValueChange={(val) => setFormData({ ...formData, department: val })}
+                    required
                   >
-                    <option value="" disabled className="text-zinc-600">
-                      Select Department
-                    </option>
-                    {["CSE", "ECE", "EEE", "ME", "CE", "AI&DS"].map((d) => (
-                      <option key={d} value={d} className="bg-[#120a05]">
-                        {d}
-                      </option>
-                    ))}
-                  </select>
+                    <SelectTrigger id="department">
+                      <SelectValue placeholder="Select Department" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {["CSE", "ECE", "EEE", "ME", "CE", "AI&DS"].map((d) => (
+                        <SelectItem key={d} value={d}>
+                          {d}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
 
               <div className="space-y-4 pt-4">
                 <div className="flex justify-between items-center">
-                  <label className="text-[10px] tracking-[0.2em] uppercase text-amber-600 font-[family-name:var(--font-geist-mono)]">
-                    Select Committee
-                  </label>
+                  <Label>Select Committee</Label>
                   <span className="text-[10px] tracking-wider uppercase text-amber-700/80 font-[family-name:var(--font-geist-mono)]">
                     * Choose 1 Option
                   </span>
