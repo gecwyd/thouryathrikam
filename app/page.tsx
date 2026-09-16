@@ -111,12 +111,21 @@ export default function Home() {
             </span>
           </div>
 
-          <Link href="/media" className="group flex items-center gap-2 border border-amber-900/40 bg-[#120a05]/60 hover:bg-amber-900/30 px-4 py-2 rounded-full transition-all duration-300">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-            <span className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-amber-500 group-hover:text-amber-400 font-[family-name:var(--font-geist-mono)]">
-              Join Media Team
-            </span>
-          </Link>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link href="/volunteer" className="group flex items-center gap-2 border border-amber-900/40 bg-[#120a05]/60 hover:bg-amber-900/30 px-4 py-2 rounded-full transition-all duration-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+              <span className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-amber-500 group-hover:text-amber-400 font-[family-name:var(--font-geist-mono)]">
+                Volunteer Call
+              </span>
+            </Link>
+
+            <Link href="/media" className="group flex items-center gap-2 border border-amber-900/40 bg-[#120a05]/60 hover:bg-amber-900/30 px-4 py-2 rounded-full transition-all duration-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+              <span className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-amber-500 group-hover:text-amber-400 font-[family-name:var(--font-geist-mono)]">
+                Join Media Team
+              </span>
+            </Link>
+          </div>
         </div>
 
         <a
