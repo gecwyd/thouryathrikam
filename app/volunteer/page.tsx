@@ -195,7 +195,7 @@ export default function VolunteerCallForm() {
                       <SelectValue placeholder="Select Semester" />
                     </SelectTrigger>
                     <SelectContent>
-                      {["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8"].map((s) => (
+                      {["S1", "S3", "S5", "S7"].map((s) => (
                         <SelectItem key={s} value={s}>
                           {s}
                         </SelectItem>
@@ -215,7 +215,7 @@ export default function VolunteerCallForm() {
                       <SelectValue placeholder="Select Department" />
                     </SelectTrigger>
                     <SelectContent>
-                      {["CSE", "ECE", "EEE", "ME", "CE", "AI&DS"].map((d) => (
+                      {["CSE", "EC1", "EC2", "EEE", "ME", "CEE"].map((d) => (
                         <SelectItem key={d} value={d}>
                           {d}
                         </SelectItem>

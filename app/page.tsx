@@ -112,6 +112,20 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
+            <Link href="/register" className="group flex items-center gap-2 border border-amber-600/60 bg-amber-500/10 hover:bg-amber-500/20 px-4 py-2 rounded-full transition-all duration-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+              <span className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-amber-300 group-hover:text-amber-200 font-[family-name:var(--font-geist-mono)] font-semibold">
+                Student Registration
+              </span>
+            </Link>
+
+            <Link href="/events/submit" className="group flex items-center gap-2 border border-amber-600/60 bg-amber-500/10 hover:bg-amber-500/20 px-4 py-2 rounded-full transition-all duration-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+              <span className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-amber-300 group-hover:text-amber-200 font-[family-name:var(--font-geist-mono)] font-semibold">
+                Submit Events
+              </span>
+            </Link>
+
             <Link href="/volunteer" className="group flex items-center gap-2 border border-amber-900/40 bg-[#120a05]/60 hover:bg-amber-900/30 px-4 py-2 rounded-full transition-all duration-300">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
               <span className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-amber-500 group-hover:text-amber-400 font-[family-name:var(--font-geist-mono)]">

@@ -207,7 +207,7 @@ export default function MediaTeamForm() {
                       <SelectValue placeholder="Select Department" />
                     </SelectTrigger>
                     <SelectContent>
-                      {["CSE", "ECE", "EEE", "ME", "CE", "AI&DS"].map((d) => (
+                      {["CSE", "EC1", "EC2", "EEE", "ME", "CEE"].map((d) => (
                         <SelectItem key={d} value={d}>
                           {d}
                         </SelectItem>
