@@ -151,20 +151,6 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     ],
   },
   {
-    id: "folk-song",
-    name: "Folk Song",
-    stageType: "on-stage",
-    category: "Music",
-    type: "group",
-    gender: "combined",
-    duration: "8-10 minutes",
-    participantsCount: 9,
-    guidelines: [
-      "Duration – 8-10 minutes",
-      "Participants – 9 (Male and Female combined)",
-    ],
-  },
-  {
     id: "semiclassical-hindustani-song",
     name: "Semiclassical Hindustani Song",
     stageType: "on-stage",
@@ -460,20 +446,6 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     ],
   },
   {
-    id: "kathakali-group",
-    name: "Kathakali (Group)",
-    stageType: "on-stage",
-    category: "Dance",
-    type: "group",
-    gender: "combined",
-    duration: "30 minutes",
-    participantsCount: "Min 2",
-    guidelines: [
-      "Duration – 30 minutes",
-      "Participants – Minimum 2",
-    ],
-  },
-  {
     id: "bharatanatyam-solo",
     name: "Bharatanatyam (Solo)",
     stageType: "on-stage",
@@ -501,22 +473,6 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     guidelines: [
       "Duration – 15 minutes",
       "Accompanists – 3",
-    ],
-  },
-  {
-    id: "classical-dance-solo",
-    name: "Classical Dance (Solo)",
-    stageType: "on-stage",
-    category: "Dance",
-    type: "solo",
-    gender: "open",
-    duration: "15 minutes",
-    participantsCount: 1,
-    accompanistsCount: 3,
-    guidelines: [
-      "Duration – 5 minutes",
-      "Accompanists – 3",
-      "Category: Kuchipudi / Odissi / Kathak / Manipuri",
     ],
   },
   {
@@ -647,23 +603,6 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
       "Participant – 1",
       "Accompanists – 1",
       "Setting Time – 5 minutes",
-    ],
-  },
-  {
-    id: "folk-dance-group",
-    name: "Folk Dance (Group)",
-    stageType: "on-stage",
-    category: "Dance",
-    type: "group",
-    gender: "open",
-    duration: "10 minutes",
-    participantsCount: 8,
-    accompanistsCount: 5,
-    guidelines: [
-      "Duration – 10 minutes",
-      "Participants – 8",
-      "Accompanists – 5",
-      "Separate for Male and Female",
     ],
   },
   {
@@ -986,7 +925,6 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
       "Tradition of the folk song to be revealed on stage (Anushtana Pattukal, Festival Songs, Kaali Pattu)",
       "Background music and karaoke prohibited",
       "Maximum 3 instruments allowed; participants must play them themselves",
-      "No marks for dress code",
     ],
   },
 
