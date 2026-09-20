@@ -64,6 +64,7 @@ export default function EventSubmissionPage() {
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
 
   const [department, setDepartment] = useState("");
+  const [submitterDegree, setSubmitterDegree] = useState<"B.Tech" | "M.Tech">("B.Tech");
   const [submitterName, setSubmitterName] = useState("");
   const [submitterPhone, setSubmitterPhone] = useState("");
   const [submitterSemester, setSubmitterSemester] = useState("");
@@ -147,6 +148,7 @@ export default function EventSubmissionPage() {
   const goToStep2 = () => {
     setValidationError("");
     if (!department) { setValidationError("Please select your department."); return; }
+    if (!submitterDegree) { setValidationError("Please select B.Tech or M.Tech."); return; }
     if (!submitterSemester) { setValidationError("Please select your semester."); return; }
     if (!submitterName.trim()) { setValidationError("Please enter the representative name."); return; }
     if (!submitterPhone.trim() || submitterPhone.trim().length < 8) { setValidationError("Please enter a valid contact number."); return; }
@@ -171,6 +173,7 @@ export default function EventSubmissionPage() {
     try {
       const res = await submitEventRegistration({
         department,
+        degree: submitterDegree,
         submitterName,
         submitterPhone,
         submitterSemester,
@@ -202,6 +205,7 @@ export default function EventSubmissionPage() {
   const resetFullForm = () => {
     setStatus("idle");
     setDepartment("");
+    setSubmitterDegree("B.Tech");
     setSubmitterName("");
     setSubmitterPhone("");
     setSubmitterSemester("");
@@ -291,9 +295,10 @@ export default function EventSubmissionPage() {
               <div className="w-full max-w-md bg-[#180e08]/90 border border-amber-800/40 rounded p-5 text-left space-y-3 font-mono text-xs text-amber-200/90 mb-8">
                 {[
                   { label: "Event", value: selectedEvent?.name },
+                  { label: "Program", value: submitterDegree },
                   { label: "Department", value: department },
                   { label: "Submitter", value: `${submitterName} (${submitterSemester})` },
-                  { label: "Participants", value: participants.filter(Boolean).join(", ") },
+                  { label: "Participants", value: participants.filter((p) => p.name.trim()).map((p) => p.name).join(", ") },
                   ...(notes ? [{ label: "Notes", value: notes }] : []),
                 ].map(({ label, value }) => (
                   <div key={label} className="flex justify-between border-b border-amber-900/30 pb-2 last:border-0 last:pb-0">
@@ -335,6 +340,27 @@ export default function EventSubmissionPage() {
                     </div>
                   </div>
 
+                  {/* Program / Degree Selection (B.Tech / M.Tech) */}
+                  <div className="space-y-2">
+                    <Label className="text-amber-400/90">Program / Degree <span className="text-amber-400">*</span></Label>
+                    <div className="grid grid-cols-2 gap-3">
+                      {(["B.Tech", "M.Tech"] as const).map((deg) => (
+                        <button
+                          key={deg}
+                          type="button"
+                          onClick={() => { setSubmitterDegree(deg); setValidationError(""); }}
+                          className={`py-3 px-4 rounded border text-xs font-semibold uppercase tracking-wider transition-all duration-200 font-[family-name:var(--font-geist-mono)] cursor-pointer ${
+                            submitterDegree === deg
+                              ? "bg-amber-500/20 border-amber-500 text-amber-200 shadow-md shadow-amber-950/60 ring-1 ring-amber-500/50"
+                              : "bg-[#090503]/70 border-amber-900/40 text-amber-500/70 hover:border-amber-700/60 hover:text-amber-300"
+                          }`}
+                        >
+                          {deg}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
                   <div className="space-y-3">
                     <Label>Select Department <span className="text-amber-400">*</span></Label>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -353,7 +379,7 @@ export default function EventSubmissionPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-2">
                     <div className="space-y-2">
-                      <Label htmlFor="submitterSemester">Semester (Odd) <span className="text-amber-400">*</span></Label>
+                      <Label htmlFor="submitterSemester">Semester <span className="text-amber-400">*</span></Label>
                       <Select value={submitterSemester} onValueChange={(val) => { setSubmitterSemester(val); setValidationError(""); }}>
                         <SelectTrigger id="submitterSemester" className="h-12"><SelectValue placeholder="Select Semester" /></SelectTrigger>
                         <SelectContent>
@@ -398,7 +424,7 @@ export default function EventSubmissionPage() {
                       <div>
                         <h3 className="text-xs uppercase tracking-[0.3em] text-amber-300 font-[family-name:var(--font-geist-mono)] font-semibold">Step 2: Choose Festival Event</h3>
                         <p className="text-[11px] text-amber-600 tracking-wider">
-                          Submitting for <span className="text-amber-300 font-semibold">{department}</span> Department ({submitterName})
+                          Submitting for <span className="text-amber-300 font-semibold">{department} ({submitterDegree})</span> ({submitterName})
                         </p>
                       </div>
                     </div>
@@ -569,7 +595,7 @@ export default function EventSubmissionPage() {
                       <div>
                         <h3 className="text-xs uppercase tracking-[0.3em] text-amber-300 font-[family-name:var(--font-geist-mono)] font-semibold">Step 3: Participant List & Final Submission</h3>
                         <p className="text-[11px] text-amber-600 tracking-wider">
-                          {department} · <span className="text-amber-400">{selectedEvent.name}</span>
+                          {department} ({submitterDegree}) · <span className="text-amber-400">{selectedEvent.name}</span>
                         </p>
                       </div>
                     </div>
@@ -639,6 +665,7 @@ export default function EventSubmissionPage() {
                     </h5>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono text-amber-200/90 pt-1">
                       {[
+                        { label: "PROGRAM", value: submitterDegree },
                         { label: "DEPARTMENT", value: department },
                         { label: "SUBMITTER", value: `${submitterName} (${submitterSemester})` },
                         { label: "EVENT", value: selectedEvent.name },
