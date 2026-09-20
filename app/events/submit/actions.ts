@@ -3,6 +3,7 @@ const GOOGLE_SCRIPT_URL =
 
 export interface EventSubmissionPayload {
   department: string;
+  degree?: string; // <-- ADD THIS LINE
   submitterName: string;
   submitterPhone: string;
   submitterSemester: string;
