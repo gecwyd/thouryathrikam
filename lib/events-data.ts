@@ -33,7 +33,7 @@ export const DEPARTMENTS = [
 
 export const FESTIVAL_EVENTS: FestivalEvent[] = [
   {
-    "id": "light-music (updated)",
+    "id": "light-music (updated) @1:53am",
     "name": "Light Music",
     "stageType": "on-stage",
     "category": "Music",
