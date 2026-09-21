@@ -528,7 +528,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     "name": "Duet Dance",
     "stageType": "on-stage",
     "category": "Dance",
-    "type": "duet",
+    "type": "group",
     "gender": "open",
     "duration": "5 minutes",
     "participantsCount": 2,
@@ -567,22 +567,6 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
       "Duration ? 10 minutes",
       "Separate for Male and Female",
       "For various dance items non students shall be allowed to provide background music"
-    ]
-  },
-  {
-    "id": "koodiyattom",
-    "name": "Koodiyattom",
-    "stageType": "on-stage",
-    "category": "Dance",
-    "type": "group",
-    "gender": "combined",
-    "duration": "30 minutes",
-    "participantsCount": 7,
-    "settingTime": "5 minutes",
-    "guidelines": [
-      "Duration ? 30 minutes",
-      "Participants ? 7",
-      "Setting Time ? 5 minutes"
     ]
   },
   {
@@ -765,38 +749,6 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     ]
   },
   {
-    "id": "theme-dance",
-    "name": "Theme Dance",
-    "stageType": "on-stage",
-    "category": "Dance",
-    "type": "group",
-    "gender": "combined",
-    "duration": "10 minutes",
-    "participantsCount": 10,
-    "guidelines": [
-      "Duration ? 10 minutes",
-      "Participants ? 10",
-      "Theme will be provided prior"
-    ]
-  },
-  {
-    "id": "nostalgia",
-    "name": "Nostalgia",
-    "stageType": "on-stage",
-    "category": "Dance",
-    "type": "group",
-    "gender": "combined",
-    "duration": "10 minutes",
-    "participantsCount": 10,
-    "guidelines": [
-      "Duration ? 10 minutes",
-      "Participants ? 10",
-      "Songs must be that of before 1980",
-      "Remix are not allowed",
-      "Meant for Final years"
-    ]
-  },
-  {
     "id": "spot-dance",
     "name": "Spot Dance",
     "stageType": "on-stage",
@@ -913,7 +865,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     "name": "Film Song (Duet)",
     "stageType": "on-stage",
     "category": "Music",
-    "type": "duet",
+    "type": "group",
     "gender": "open",
     "duration": "5 minute",
     "participantsCount": 2,
@@ -943,7 +895,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
   {
     "id": "elocution",
     "name": "Elocution",
-    "stageType": "off-stage",
+    "stageType": "on-stage",
     "category": "Literary & Oratory",
     "type": "solo",
     "gender": "open",
@@ -958,7 +910,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
   {
     "id": "extempore",
     "name": "Extempore",
-    "stageType": "off-stage",
+    "stageType": "on-stage",
     "category": "Literary & Oratory",
     "type": "solo",
     "gender": "open",
@@ -974,7 +926,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
   {
     "id": "film-review",
     "name": "Film Review",
-    "stageType": "off-stage",
+    "stageType": "on-stage",
     "category": "Literary & Oratory",
     "type": "solo",
     "gender": "open",
@@ -1062,21 +1014,6 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
       "Grace time of 30 seconds shall be given",
       "For various dance items non students shall be allowed to provide background music(both vocal & Instrumental)",
       "File must in Mp3 format and it must be submitted before hand"
-    ]
-  },
-  {
-    "id": "fashion-show",
-    "name": "Fashion Show",
-    "stageType": "on-stage",
-    "category": "Dance",
-    "type": "group",
-    "gender": "combined",
-    "duration": "15 minutes",
-    "participantsCount": 10,
-    "guidelines": [
-      "Duration ? 15 minutes",
-      "Participants ? 10",
-      "Theme will be provided prior"
     ]
   },
   {
@@ -1213,7 +1150,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
   {
     "id": "aksharashloka",
     "name": "Aksharashloka",
-    "stageType": "off-stage",
+    "stageType": "on-stage",
     "category": "Literary & Oratory",
     "type": "solo",
     "gender": "open",
@@ -1273,22 +1210,6 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
       "No external assistance allowed",
       "Judges decision is final",
       "Original work only; materials provided by Union"
-    ]
-  },
-  {
-    "id": "speech-competition",
-    "name": "Speech Competition",
-    "stageType": "off-stage",
-    "category": "Literary & Oratory",
-    "type": "solo",
-    "gender": "open",
-    "duration": "5 minutes",
-    "participantsCount": 1,
-    "guidelines": [
-      "Individual participation",
-      "Time limit: 5 minutes",
-      "Topic given 5 minutes before competition",
-      "Speech delivered on the spot without external assistance"
     ]
   },
   {
