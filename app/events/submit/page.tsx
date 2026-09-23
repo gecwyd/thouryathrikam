@@ -392,7 +392,7 @@ export default function EventSubmissionPage() {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="submitterName">Representative / Lead Name <span className="text-amber-400">*</span></Label>
+                      <Label htmlFor="submitterName">Lead Participant/Participant1 <span className="text-amber-400">*</span></Label>
                       <div className="relative">
                         <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-amber-700 pointer-events-none" />
                         <Input id="submitterName" type="text" value={submitterName} onChange={(e) => { setSubmitterName(e.target.value); setValidationError(""); }} placeholder="e.g. Rahul K" className="pl-10 h-12" />
