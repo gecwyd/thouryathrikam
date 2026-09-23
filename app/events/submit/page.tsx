@@ -150,7 +150,7 @@ export default function EventSubmissionPage() {
     if (!department) { setValidationError("Please select your department."); return; }
     if (!submitterDegree) { setValidationError("Please select B.Tech or M.Tech."); return; }
     if (!submitterSemester) { setValidationError("Please select your semester."); return; }
-    if (!submitterName.trim()) { setValidationError("Please enter the representative name."); return; }
+    if (!submitterName.trim()) { setValidationError("Please enter the Lead Participant/Participant 1 name."); return; }
     if (!submitterPhone.trim() || submitterPhone.trim().length < 8) { setValidationError("Please enter a valid contact number."); return; }
     setCurrentStep(2);
   };
@@ -336,7 +336,7 @@ export default function EventSubmissionPage() {
                     <Building2 className="w-4 h-4 text-amber-400" />
                     <div>
                       <h3 className="text-xs uppercase tracking-[0.3em] text-amber-300 font-[family-name:var(--font-geist-mono)] font-semibold">Step 1: Department & Submitter Details</h3>
-                      <p className="text-[11px] text-amber-600 tracking-wider">Specify your branch and department contact lead</p>
+                      <p className="text-[11px] text-amber-600 tracking-wider">Specify your branch and Lead Participant/Participant 1 name</p>
                     </div>
                   </div>
 
