@@ -61,6 +61,9 @@ const OFF_STAGE_CATEGORIES: EventCategory[] = [
 const SEMESTERS = ["S1", "S3", "S5", "S7"];
 
 export default function EventSubmissionPage() {
+  // Set to true to close registrations; set to false to re-enable
+  const IS_REGISTRATION_CLOSED = true;
+
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
 
   const [department, setDepartment] = useState("");
@@ -150,7 +153,7 @@ export default function EventSubmissionPage() {
     if (!department) { setValidationError("Please select your department."); return; }
     if (!submitterDegree) { setValidationError("Please select B.Tech or M.Tech."); return; }
     if (!submitterSemester) { setValidationError("Please select your semester."); return; }
-    if (!submitterName.trim()) { setValidationError("Please enter the Lead Participant/Participant 1 name."); return; }
+    if (!submitterName.trim()) { setValidationError("Please enter the Lead Participant name."); return; }
     if (!submitterPhone.trim() || submitterPhone.trim().length < 8) { setValidationError("Please enter a valid contact number."); return; }
     setCurrentStep(2);
   };
@@ -241,7 +244,7 @@ export default function EventSubmissionPage() {
           </h1>
         </div>
 
-        {status !== "success" && (
+        {!IS_REGISTRATION_CLOSED && status !== "success" && (
           <div className="mb-8 max-w-2xl mx-auto">
             <div className="grid grid-cols-3 gap-2 sm:gap-4">
               {(["1: Department", "2: Event", "3: Participants"] as const).map((label, i) => {
@@ -285,7 +288,26 @@ export default function EventSubmissionPage() {
           <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-amber-600/60" />
           <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber-600/60" />
 
-          {status === "success" ? (
+          {IS_REGISTRATION_CLOSED ? (
+            <div className="flex flex-col items-center justify-center py-16 px-4 text-center animate-in fade-in zoom-in duration-300">
+              <div className="w-16 h-16 rounded-full bg-amber-950/50 border border-amber-600/40 flex items-center justify-center mb-6 shadow-lg shadow-amber-950/60">
+                <AlertCircle className="w-8 h-8 text-amber-400" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black uppercase font-[family-name:var(--font-outfit)] tracking-wider text-amber-100 mb-3">
+                Registration Closed
+              </h2>
+              <p className="text-amber-400/80 text-xs sm:text-sm font-[family-name:var(--font-geist-mono)] tracking-wider max-w-md mb-8 leading-relaxed">
+                Event submissions for Thouryathrikam 2026 are officially closed. For any queries or corrections, please contact your department arts coordinators.
+              </p>
+              <Link
+                href="/"
+                className="group inline-flex items-center gap-2 px-8 py-3.5 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/60 transition-all duration-300 text-amber-200 text-xs font-semibold tracking-[0.2em] uppercase font-[family-name:var(--font-outfit)] cursor-pointer"
+              >
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                <span>Return to Home</span>
+              </Link>
+            </div>
+          ) : status === "success" ? (
             <div className="flex flex-col items-center justify-center py-12 text-center animate-in fade-in zoom-in duration-500">
               <div className="w-20 h-20 rounded-full bg-amber-500/10 flex items-center justify-center mb-6 border border-amber-500/40">
                 <CheckCircle2 className="w-10 h-10 text-amber-400" />
@@ -336,11 +358,10 @@ export default function EventSubmissionPage() {
                     <Building2 className="w-4 h-4 text-amber-400" />
                     <div>
                       <h3 className="text-xs uppercase tracking-[0.3em] text-amber-300 font-[family-name:var(--font-geist-mono)] font-semibold">Step 1: Department & Submitter Details</h3>
-                      <p className="text-[11px] text-amber-600 tracking-wider">Specify your branch and Lead Participant/Participant 1 name</p>
+                      <p className="text-[11px] text-amber-600 tracking-wider">Specify your branch and Lead Participant name</p>
                     </div>
                   </div>
 
-                  {/* Program / Degree Selection (B.Tech / M.Tech) */}
                   <div className="space-y-2">
                     <Label className="text-amber-400/90">Program / Degree <span className="text-amber-400">*</span></Label>
                     <div className="grid grid-cols-2 gap-3">
@@ -392,7 +413,7 @@ export default function EventSubmissionPage() {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="submitterName">Lead Participant/Participant1 <span className="text-amber-400">*</span></Label>
+                      <Label htmlFor="submitterName">Lead Participant <span className="text-amber-400">*</span></Label>
                       <div className="relative">
                         <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-amber-700 pointer-events-none" />
                         <Input id="submitterName" type="text" value={submitterName} onChange={(e) => { setSubmitterName(e.target.value); setValidationError(""); }} placeholder="e.g. Rahul K" className="pl-10 h-12" />
@@ -611,7 +632,7 @@ export default function EventSubmissionPage() {
                       {participants.map((p, idx) => (
                         <div key={idx} className="relative p-3 rounded border border-amber-900/40 bg-[#120a05]/60 flex flex-col gap-2">
                           <div className="flex justify-between items-center">
-                            <Label className="text-amber-500/80 text-[10px] font-mono uppercase tracking-wider">Participant {idx + 1} {idx === 0 && "(Lead)"}</Label>
+                            <Label className="text-amber-500/80 text-[10px] font-mono uppercase tracking-wider">{idx === 0 ? "Lead Participant" : `Participant ${idx + 1}`}</Label>
                             {selectedEvent.type === "group" && participants.length > 1 && (
                               <button type="button" onClick={() => removeParticipantField(idx)} className="text-red-500 hover:text-red-400 p-1 cursor-pointer transition-colors">
                                 <Trash2 className="w-4 h-4" />
@@ -667,7 +688,7 @@ export default function EventSubmissionPage() {
                       {[
                         { label: "PROGRAM", value: submitterDegree },
                         { label: "DEPARTMENT", value: department },
-                        { label: "SUBMITTER", value: `${submitterName} (${submitterSemester})` },
+                        { label: "LEAD PARTICIPANT", value: `${submitterName} (${submitterSemester})` },
                         { label: "EVENT", value: selectedEvent.name },
                         { label: "PARTICIPANTS", value: participants.filter((x) => x.name.trim().length > 0).length.toString() },
                       ].map(({ label, value }) => (
