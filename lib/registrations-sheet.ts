@@ -90,3 +90,16 @@ export async function loadRegistrationSheets() {
     errors: results.flatMap((result) => result.status === "rejected" ? [String(result.reason)] : []),
   };
 }
+
+export async function loadStudentPortalSheets() {
+  const results = await Promise.allSettled([
+    loadSheet("Students", SHEETS[0].columns),
+    loadSheet("Event Submissions"),
+  ]);
+
+  return {
+    students: results[0].status === "fulfilled" ? results[0].value : undefined,
+    events: results[1].status === "fulfilled" ? results[1].value : undefined,
+    errors: results.flatMap((result) => result.status === "rejected" ? [String(result.reason)] : []),
+  };
+}

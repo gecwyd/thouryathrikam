@@ -85,6 +85,13 @@ export default function Home() {
           {/* Action Links */}
           <div className="flex flex-wrap gap-2.5 sm:gap-3">
             <Link
+              href="/student/login"
+              className="px-4 sm:px-5 py-1.5 rounded-full border border-amber-900/50 bg-[#140b06]/80 hover:bg-amber-950/60 hover:border-amber-600/70 text-amber-300/90 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] transition-all duration-200 flex items-center gap-2"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+              Student Login
+            </Link>
+            <Link
               href="/register"
               className="px-4 sm:px-5 py-1.5 rounded-full border border-amber-900/50 bg-[#140b06]/80 hover:bg-amber-950/60 hover:border-amber-600/70 text-amber-300/90 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] transition-all duration-200 flex items-center gap-2"
             >
