@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, Play } from "lucide-react";
 import logoNoBg from "@/public/logo-no-bg.webp";
 import { AutoVideo } from "@/components/home/auto-video";
-import { Burst, Polaroid, Ransom, ScribbleArrow, ScribbleCircle, Star, Tape, tornPath } from "@/components/home/collage";
+import { Burst, Polaroid, Ransom, ScribbleArrow, Star, Tape, tornPath } from "@/components/home/collage";
 import { StoryProvider, StoryTrigger } from "@/components/home/story-viewer";
 import { CERTIFICATE_URL, INSTAGRAM_URL, media, storyReel, type StoryItem } from "@/lib/story-media";
 import { cn } from "@/lib/utils";
@@ -115,10 +115,6 @@ export default function Home() {
             </span>
             <Tape className="-left-8 -top-3 -rotate-12" tone="pink" />
           </div>
-
-          <p className="mx-auto mt-6 max-w-xl font-[family-name:var(--font-hand)] text-[clamp(1.6rem,3vw,2.2rem)] font-medium leading-tight">
-            three arts, one stage &amp; <span className="relative inline-block px-1">every one of us<ScribbleCircle className="absolute -inset-x-3 -inset-y-2 h-[calc(100%+1rem)] w-[calc(100%+1.5rem)] text-[#ff2e88]" /></span>
-          </p>
         </section>
 
         {/* ───────────── Hero: collage ───────────── */}
