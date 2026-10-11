@@ -87,20 +87,44 @@ const ransomStyles: { box: string; text: string }[] = [
   { box: "bg-[#2a3fd6]", text: "font-[family-name:var(--font-anton)] text-white" },
 ];
 
-/** Letters cut from different magazines, glued in a row. */
-export function Ransom({ text, seed = 7, className }: { text: string; seed?: number; className?: string }) {
+/**
+ * Letters cut from different magazines, glued in a row.
+ * Pass `parts` for scripts like Malayalam, where conjuncts must stay on one scrap.
+ */
+export function Ransom({
+  text,
+  parts,
+  seed = 7,
+  className,
+  script = "latin",
+}: {
+  text: string;
+  parts?: string[];
+  seed?: number;
+  className?: string;
+  script?: "latin" | "malayalam";
+}) {
   const rand = rng(seed);
   return (
     <span className={cn("inline-flex flex-wrap items-center justify-center gap-x-[0.08em] gap-y-[0.12em]", className)} aria-label={text}>
-      {[...text].map((ch, i) => {
-        const style = ransomStyles[Math.floor(rand() * ransomStyles.length)];
+      {(parts ?? [...text]).map((ch, i) => {
+        const picked = ransomStyles[Math.floor(rand() * ransomStyles.length)];
+        // Display fonts here are Latin-only, so Malayalam keeps the colours but uses its own face.
+        const style =
+          script === "malayalam"
+            ? { box: picked.box, text: cn(picked.text, "font-[family-name:var(--font-malayalam)] font-extrabold not-italic") }
+            : picked;
         const rot = (rand() - 0.5) * 14;
         const lift = (rand() - 0.5) * 0.18;
         return (
           <span
             key={i}
             aria-hidden
-            className={cn("inline-block px-[0.12em] pb-[0.04em] pt-[0.06em] leading-[0.95] shadow-[0_3px_0_rgba(20,16,16,0.18)]", style.box)}
+            className={cn(
+              "inline-block px-[0.12em] pb-[0.04em] pt-[0.06em] leading-[0.95] shadow-[0_3px_0_rgba(20,16,16,0.18)]",
+              script === "malayalam" && "px-[0.16em] pb-[0.1em] pt-[0.02em] leading-[1.3]",
+              style.box,
+            )}
             style={{ transform: `rotate(${rot.toFixed(1)}deg) translateY(${lift.toFixed(2)}em)` }}
           >
             <span className={style.text}>{ch}</span>

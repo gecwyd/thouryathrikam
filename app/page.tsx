@@ -97,15 +97,21 @@ export default function Home() {
           </p>
 
           <h1 className="mt-6">
-            <Ransom text="THOURYATHRIKAM" seed={26} className="text-[clamp(2.4rem,8.6vw,7.6rem)]" />
+            <Ransom
+              text="തൗര്യത്രികം"
+              parts={["തൗ", "ര്യ", "ത്രി", "കം"]}
+              script="malayalam"
+              seed={31}
+              className="gap-x-[0.14em] text-[clamp(3.2rem,12vw,9rem)]"
+            />
           </h1>
 
-          <div className="relative mx-auto mt-6 w-fit">
+          <div className="relative mx-auto mt-8 w-fit">
             <span
-              className="block bg-[#141010] px-8 py-2 font-[family-name:var(--font-malayalam)] text-[clamp(1.6rem,4.5vw,3.2rem)] font-extrabold text-[#f29a2e] sm:px-12"
+              className="block bg-[#141010] px-8 py-2 font-[family-name:var(--font-anton)] text-[clamp(1.3rem,3.6vw,2.4rem)] uppercase tracking-[0.18em] text-[#f29a2e] sm:px-12"
               style={{ clipPath: tornPath(3, { left: true, right: true }) }}
             >
-              തൗര്യത്രികം
+              Thouryathrikam
             </span>
             <Tape className="-left-8 -top-3 -rotate-12" tone="pink" />
           </div>
