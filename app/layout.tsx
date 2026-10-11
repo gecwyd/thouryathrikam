@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif, Noto_Serif_Malayalam, Outfit } from "next/font/google";
+import { Anton, Caveat, Geist, Geist_Mono, Instrument_Serif, Noto_Serif_Malayalam, Outfit } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -18,6 +18,18 @@ const malayalam = Noto_Serif_Malayalam({
   variable: "--font-malayalam",
   weight: ["600", "800"],
   subsets: ["malayalam"],
+});
+
+const anton = Anton({
+  variable: "--font-anton",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const caveat = Caveat({
+  variable: "--font-hand",
+  weight: ["500", "700"],
+  subsets: ["latin"],
 });
 
 const geistSans = Geist({
@@ -191,7 +203,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${instrumentSerif.variable} ${malayalam.variable} ${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}
+      className={`${outfit.variable} ${instrumentSerif.variable} ${malayalam.variable} ${anton.variable} ${caveat.variable} ${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}
     >
       <head>
         <script

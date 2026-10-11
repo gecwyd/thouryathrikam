@@ -94,3 +94,21 @@
     animation: none;
   }
 }
+
+/* Homepage collage: faint notebook grid on the paper background */
+.paper-lines {
+  background-image:
+    linear-gradient(rgba(20, 16, 16, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 16, 16, 0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Homepage collage: ticket with punched half-circle notches on both sides */
+.ticket {
+  -webkit-mask:
+    radial-gradient(circle 18px at 0 50%, transparent 17px, #000 18px) left / 51% 100% no-repeat,
+    radial-gradient(circle 18px at 100% 50%, transparent 17px, #000 18px) right / 51% 100% no-repeat;
+  mask:
+    radial-gradient(circle 18px at 0 50%, transparent 17px, #000 18px) left / 51% 100% no-repeat,
+    radial-gradient(circle 18px at 100% 50%, transparent 17px, #000 18px) right / 51% 100% no-repeat;
+}
