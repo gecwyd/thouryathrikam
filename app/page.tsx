@@ -31,7 +31,6 @@ const triad = [
 const wall: { item: StoryItem; style: "polaroid" | "taped" | "torn"; shape: string; tilt: string }[] = [
   { item: media.welcomeSign, style: "polaroid", shape: "aspect-[4/5]", tilt: "-rotate-2" },
   { item: media.confettiCrowd, style: "taped", shape: "aspect-[9/16]", tilt: "rotate-2" },
-  { item: media.crew, style: "torn", shape: "aspect-square", tilt: "rotate-1" },
   { item: media.oppana, style: "polaroid", shape: "aspect-[3/4]", tilt: "rotate-3" },
   { item: media.campusAerial, style: "taped", shape: "aspect-[9/16]", tilt: "-rotate-2" },
   { item: media.duffmuttu, style: "torn", shape: "aspect-[4/5]", tilt: "-rotate-1" },

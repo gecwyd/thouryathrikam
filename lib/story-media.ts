@@ -5,7 +5,6 @@ import beforeCurtain from "@/public/story/before-curtain.webp";
 import campusAerial from "@/public/story/campus-aerial.webp";
 import campusTrail from "@/public/story/campus-trail.webp";
 import confettiCrowdPoster from "@/public/story/confetti-crowd-poster.webp";
-import crew from "@/public/story/crew.webp";
 import decibelStagePoster from "@/public/story/decibel-stage-poster.webp";
 import djNightPoster from "@/public/story/dj-night-poster.webp";
 import duffmuttu from "@/public/story/duffmuttu.webp";
@@ -52,7 +51,6 @@ export const media = {
   pyroNight: image("pyro-night", pyroNight, "Fire on the main stage"),
   campusTrail: image("campus-trail", campusTrail, "The campus, dressed for the fest"),
   mohiniyattam: image("mohiniyattam", mohiniyattam, "Mohiniyattam under the lights"),
-  crew: image("crew", crew, "The crew behind it all"),
   mohiniyattamMono: image("mohiniyattam-mono", mohiniyattamMono, "Mid-step, in monochrome"),
   decibelStage: video("decibel-stage", decibelStagePoster, "SATHVA × DECIBEL"),
   duffmuttu: image("duffmuttu", duffmuttu, "Waiting for the beat"),
@@ -75,7 +73,6 @@ export const storyReel: StoryItem[] = [
   media.pyroNight,
   media.campusTrail,
   media.mohiniyattam,
-  media.crew,
   media.mohiniyattamMono,
   media.decibelStage,
   media.duffmuttu,
